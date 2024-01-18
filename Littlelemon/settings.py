@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'restaurant',
     'rest_framework',
     'rest_framework.authtoken',
+    'djoser'
 ]
 
 MIDDLEWARE = [
@@ -97,13 +98,6 @@ DATABASES = {
     }
 }
 
-
-# # my.cnf
-# [client]
-# 'NAME': 'my_database'
-# 'USER': 'root'
-# 'PASSWORD': 'your_password'
-# default-character-set = utf8
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -167,3 +161,5 @@ REST_FRAMEWORK = {
         # 'ten' : '10/minute',
     },
 }
+
+DJOSER={"USER_ID_FIELD":"username"}

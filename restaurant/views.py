@@ -1,9 +1,11 @@
-from django.shortcuts import render
-from rest_framework import generics, permissions, viewsets
+from django.shortcuts import render, get_object_or_404
+from rest_framework import generics, permissions, viewsets, status
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import *
 from .serializers import *
+from django.contrib.auth.models import Group, User
 
 # Create your views here.
 def index(request):
@@ -23,11 +25,12 @@ class BookingView(APIView):
 #             return Response({"message":"Success","data":serializer.data})
         
 class MenuItemsView(generics.ListCreateAPIView):
-    queryset = Menu.objects.all()
+    permission_classes = [IsAuthenticated]
+    queryset = MenuItem.objects.all()
     serializer_class = MenuItemSerializer
 
 class SingleMenuItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView):
-    queryset = Menu.objects.all()
+    queryset = MenuItem.objects.all()
     serializer_class = MenuItemSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -41,3 +44,11 @@ class BookingViewSet(viewsets.ModelViewSet):
    serializer_class = BookingSerializer
    permission_classes = [permissions.IsAuthenticated] 
 
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+
+@api_view()
+@permission_classes([IsAuthenticated])
+# @authentication_classes([TokenAuthentication])
+def msg(request):
+    return Response({"message":"This view is protected"})
