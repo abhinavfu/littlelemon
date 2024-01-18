@@ -44,7 +44,7 @@ class UserViewSet(viewsets.ModelViewSet):
         permission_classes = []
         if self.request.method == 'GET':
             permission_classes = [IsAuthenticated]
-        elif self.request.method == 'POST' or self.request.method == 'PUT' or self.request.method == 'DELETE':
+        elif self.request.method == 'PATCH' or self.request.method == 'PUT' or self.request.method == 'DELETE':
             permission_classes = [IsAdminUser]
 
         return [permission() for permission in permission_classes]    
