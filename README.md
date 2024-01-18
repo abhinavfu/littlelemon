@@ -8,6 +8,8 @@ There are the useful **`URLs`** to navigate easily in **`web browser`** or **`In
 Users can `create new user` and can `login` and `logout`.
 Users can only see their informations. Admin can see list of all users.
 
+For `registration` go to `http://127.0.0.1:8000/auth/users/`.
+
 |URLs|Admin|User|
 |:----- |:------|:-------|
 |http://127.0.0.1:8000/auth/users/|GET|GET|
@@ -25,7 +27,7 @@ Use `POST` method with `username` and `password` for token generation.
 ### Home page
 Homepage for `Littlelemon` website.
 
-http://127.0.0.1:8000/api/
+http://127.0.0.1:8000/
 
 ### Menu
 Admin can `get` information about menu items and can `create` new menu-items. Admin can `update` or `delete` single menu item.
@@ -42,7 +44,7 @@ You can use these `method` for table reservations.
 
 |URLs|Admin|User|
 |:----- |:------|:-------|
-|http://127.0.0.1:8000/tables/|GET, POST, PUT, PATCH, DELETE|GET, POST, PUT, PATCH, DELETE|
+|http://127.0.0.1:8000/api/bookings/|GET, POST, PUT, PATCH, DELETE|GET, POST, PUT, PATCH, DELETE|
 
 
 
