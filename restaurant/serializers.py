@@ -5,17 +5,17 @@ from django.contrib.auth.models import User
 class MenuItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = MenuItem
-        fields = ['title', 'price', 'inventory']
+        fields = ['id', 'title', 'price', 'inventory']
 
 
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
-        fields = ['name', 'no_of_guests', 'booking_date']
+        fields = ['id', 'name', 'no_of_guests', 'booking_date']
     
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'groups']
+        fields = ['id', 'url', 'username', 'email', 'groups']
         
